@@ -1,0 +1,7 @@
+.nav {
+  @apply bg-base-100 shadow-md h-14 flex items-center px-3
+}
+
+.nav > h1 {
+  @apply font-bold uppercase
+}
