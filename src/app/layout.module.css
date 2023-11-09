@@ -3,5 +3,5 @@
 }
 
 .nav > h1 {
-  @apply font-bold uppercase
+  @apply font-black uppercase text-2xl
 }
