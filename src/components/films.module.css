@@ -1,5 +1,5 @@
 .container {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-3
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3
 }
 
 .film {
@@ -12,4 +12,16 @@
 
 .table-grid {
   @apply grid grid-cols-[max-content_auto] gap-3
+}
+
+.search {
+  @apply ml-auto flex
+}
+
+.search > input {
+  @apply input input-bordered w-full max-w-xs rounded-r-none
+}
+
+.search > button {
+  @apply btn btn-primary rounded-l-none
 }
