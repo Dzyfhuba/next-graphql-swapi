@@ -1,0 +1,26 @@
+query filmQuery($id: ID!) {
+  film(id: $id) {
+    title
+    characterConnection {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+  }
+}
+
+query filmQuery($id: ID!) {
+  film(id: $id) {
+    title
+    director
+    characterConnection {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+  }
+}

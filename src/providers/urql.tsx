@@ -1,5 +1,6 @@
+'use client'
 import { ReactNode } from "react"
-import { Client, Provider, cacheExchange, fetchExchange } from "urql"
+import { Client, Provider, cacheExchange, fetchExchange, ssrExchange } from "urql"
 
 
 type Props = {
@@ -7,9 +8,15 @@ type Props = {
 }
 
 const Urql = (props: Props) => {
+  const isServerSide = typeof window === 'undefined';
+  const ssr = ssrExchange({
+    isClient: !isServerSide,
+    initialState: !isServerSide ? window.__URQL_DATA__ : undefined
+  })
+
   const client = new Client({
     url: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
-    exchanges: [cacheExchange, fetchExchange]
+    exchanges: [cacheExchange, fetchExchange, ssr]
   })
   return (
     <Provider value={client}>

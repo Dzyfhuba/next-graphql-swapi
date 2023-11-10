@@ -15,7 +15,7 @@
 }
 
 .search {
-  @apply ml-auto flex
+  @apply ml-auto flex col-span-full
 }
 
 .search > input {

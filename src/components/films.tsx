@@ -1,9 +1,10 @@
+'use client'
 import { graphql } from "@/gql";
 import { useQuery } from "urql";
 import styles from './films.module.css'
 import Loading from "./loading";
 import { MdSearch } from 'react-icons/md'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const filmsQuery = graphql(`
@@ -35,15 +36,23 @@ const Films = () => {
   const [search, setSearch] = useState<string>()
   const [filter, setFilter] = useState<string>()
 
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search)
+    const search = query.get('search')
+    if (search) {
+      setSearch(search)
+    }
+  }, [])
+
   const router = useRouter()
   return (
     <section className={styles.container}>
       <form className={styles.search} onSubmit={(e) => {
         e.preventDefault()
-        setFilter(search?.toLocaleLowerCase())
+        setFilter(search)
         router.replace(search ? `?search=${search}` : '/')
       }}>
-        <input type="text" placeholder="Search" name="search" onChange={(e) => setSearch(e.target.value)} />
+        <input type="text" placeholder="Search" name="search" onChange={(e) => setSearch(e.target.value)} defaultValue={search} />
         <button><MdSearch size={24} /></button>
       </form>
       {
@@ -54,12 +63,13 @@ const Films = () => {
             films
               .data?.allFilms?.edges?.filter(a => {
                 const query = new URLSearchParams(window.location.search)
-                const filterin = query.get('search')?.toLocaleLowerCase() || filter
+                const filterin = (query.get('search') || filter)?.toLocaleLowerCase().replaceAll(' ', '') || ''
+                console.log({filterin})
                 if (!filterin) return true
-                return a?.node?.title?.toLocaleLowerCase().includes(filterin)
-                  || a?.node?.director?.toLocaleLowerCase().includes(filterin)
-                  || a?.node?.producers?.join(' ').toLocaleLowerCase().includes(filterin)
-                  || a?.node?.releaseDate?.toLocaleLowerCase().includes(filterin)
+                return a?.node?.title?.replaceAll(' ', '')?.toLocaleLowerCase().includes(filterin)
+                  || a?.node?.director?.replaceAll(' ', '')?.toLocaleLowerCase().includes(filterin)
+                  || a?.node?.producers?.join(' ').replaceAll(' ', '').toLocaleLowerCase().includes(filterin)
+                  || a?.node?.releaseDate?.replaceAll(' ', '')?.toLocaleLowerCase().includes(filterin)
               })
               .map(film => film?.node &&
                 <div key={film.node.id} className={styles.film}>

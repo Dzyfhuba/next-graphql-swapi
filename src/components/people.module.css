@@ -1,0 +1,15 @@
+.table-grid {
+  @apply grid grid-cols-[max-content_auto] gap-3
+}
+
+.container {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3
+}
+
+.box {
+  @apply card shadow-md p-3
+}
+
+.box > .title {
+  @apply font-bold text-lg
+}

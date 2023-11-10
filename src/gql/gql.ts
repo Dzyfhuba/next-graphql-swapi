@@ -15,12 +15,17 @@ import * as types from './graphql';
  */
 const documents = {
     "\n  query allFilmsWithVariablesQuery199($first: Int!) {\n    allFilms(first: $first) {\n      edges {\n        node {\n          id\n          title\n          releaseDate\n          producers\n          director\n        }\n      }\n    }\n  }\n": types.AllFilmsWithVariablesQuery199Document,
+    "\n  query allPeopleQuery($first: Int, $after: String){\n    allPeople(first: $first, after: $after){\n      totalCount\n      edges {\n        cursor\n        node {\n          id\n          name\n          gender\n          birthYear\n          height\n          mass\n          species {\n            name\n            classification\n          }\n          filmConnection {\n            edges {\n              node {\n                id\n                title\n                releaseDate\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n": types.AllPeopleQueryDocument,
 };
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query allFilmsWithVariablesQuery199($first: Int!) {\n    allFilms(first: $first) {\n      edges {\n        node {\n          id\n          title\n          releaseDate\n          producers\n          director\n        }\n      }\n    }\n  }\n"): typeof import('./graphql').AllFilmsWithVariablesQuery199Document;
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query allPeopleQuery($first: Int, $after: String){\n    allPeople(first: $first, after: $after){\n      totalCount\n      edges {\n        cursor\n        node {\n          id\n          name\n          gender\n          birthYear\n          height\n          mass\n          species {\n            name\n            classification\n          }\n          filmConnection {\n            edges {\n              node {\n                id\n                title\n                releaseDate\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n"): typeof import('./graphql').AllPeopleQueryDocument;
 
 
 export function graphql(source: string) {

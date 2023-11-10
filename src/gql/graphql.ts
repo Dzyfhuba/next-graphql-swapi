@@ -1311,6 +1311,14 @@ export type AllFilmsWithVariablesQuery199QueryVariables = Exact<{
 
 export type AllFilmsWithVariablesQuery199Query = { __typename?: 'Root', allFilms?: { __typename?: 'FilmsConnection', edges?: Array<{ __typename?: 'FilmsEdge', node?: { __typename?: 'Film', id: string, title?: string | null, releaseDate?: string | null, producers?: Array<string | null> | null, director?: string | null } | null } | null> | null } | null };
 
+export type AllPeopleQueryQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['Int']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type AllPeopleQueryQuery = { __typename?: 'Root', allPeople?: { __typename?: 'PeopleConnection', totalCount?: number | null, edges?: Array<{ __typename?: 'PeopleEdge', cursor: string, node?: { __typename?: 'Person', id: string, name?: string | null, gender?: string | null, birthYear?: string | null, height?: number | null, mass?: number | null, species?: { __typename?: 'Species', name?: string | null, classification?: string | null } | null, filmConnection?: { __typename?: 'PersonFilmsConnection', edges?: Array<{ __typename?: 'PersonFilmsEdge', node?: { __typename?: 'Film', id: string, title?: string | null, releaseDate?: string | null } | null } | null> | null } | null } | null } | null> | null } | null };
+
 export class TypedDocumentString<TResult, TVariables>
   extends String
   implements DocumentTypeDecoration<TResult, TVariables>
@@ -1341,3 +1349,34 @@ export const AllFilmsWithVariablesQuery199Document = new TypedDocumentString(`
   }
 }
     `) as unknown as TypedDocumentString<AllFilmsWithVariablesQuery199Query, AllFilmsWithVariablesQuery199QueryVariables>;
+export const AllPeopleQueryDocument = new TypedDocumentString(`
+    query allPeopleQuery($first: Int, $after: String) {
+  allPeople(first: $first, after: $after) {
+    totalCount
+    edges {
+      cursor
+      node {
+        id
+        name
+        gender
+        birthYear
+        height
+        mass
+        species {
+          name
+          classification
+        }
+        filmConnection {
+          edges {
+            node {
+              id
+              title
+              releaseDate
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `) as unknown as TypedDocumentString<AllPeopleQueryQuery, AllPeopleQueryQueryVariables>;
