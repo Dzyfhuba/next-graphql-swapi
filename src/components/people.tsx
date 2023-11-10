@@ -84,6 +84,11 @@ const People = () => {
                   <span>mass</span><span>{item?.node?.mass}</span>
                   <span>species</span><span>{item?.node?.species?.name || 'n/a'}</span>
                   <span>classification</span><span>{item?.node?.species?.classification || 'n/a'}</span>
+                  <span>film</span><ol>
+                    {item?.node?.filmConnection?.edges?.map((film) => (
+                      <li key={film?.node?.id}>{film?.node?.title} <span className="badge badge-xs block">{film?.node?.releaseDate}</span></li>
+                    ))}
+                  </ol>
                 </div>
               </div>
             )
