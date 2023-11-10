@@ -67,7 +67,7 @@ const People = () => {
       setCount(count + 1)
     }
     console.log(entry?.isIntersecting)
-  }, [entry?.isIntersecting])
+  }, [count, entry?.isIntersecting, peoples.fetching])
 
   return (
     <div className={styles.container}>

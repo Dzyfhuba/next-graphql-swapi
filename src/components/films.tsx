@@ -57,7 +57,9 @@ const Films = () => {
       </form>
       {
         films.fetching ?
-          <Loading />
+          <div className="col-span-full justify-self-center">
+            <Loading />
+          </div>
           :
           films.data ?
             films

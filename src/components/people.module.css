@@ -7,7 +7,7 @@
 }
 
 .box {
-  @apply card shadow-md p-3
+  @apply card shadow-md p-3 border
 }
 
 .box > .title {

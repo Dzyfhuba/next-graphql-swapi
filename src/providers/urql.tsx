@@ -8,15 +8,9 @@ type Props = {
 }
 
 const Urql = (props: Props) => {
-  const isServerSide = typeof window === 'undefined';
-  const ssr = ssrExchange({
-    isClient: !isServerSide,
-    initialState: !isServerSide ? window.__URQL_DATA__ : undefined
-  })
-
   const client = new Client({
     url: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
-    exchanges: [cacheExchange, fetchExchange, ssr]
+    exchanges: [cacheExchange, fetchExchange]
   })
   return (
     <Provider value={client}>
