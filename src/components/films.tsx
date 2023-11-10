@@ -66,7 +66,6 @@ const Films = () => {
               .data?.allFilms?.edges?.filter(a => {
                 const query = new URLSearchParams(window.location.search)
                 const filterin = (query.get('search') || filter)?.toLocaleLowerCase().replaceAll(' ', '') || ''
-                console.log({filterin})
                 if (!filterin) return true
                 return a?.node?.title?.replaceAll(' ', '')?.toLocaleLowerCase().includes(filterin)
                   || a?.node?.director?.replaceAll(' ', '')?.toLocaleLowerCase().includes(filterin)

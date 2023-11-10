@@ -1,10 +1,10 @@
+'use client'
 import { graphql } from "@/gql";
+import { useEffect, useRef, useState } from "react";
 import { useQuery } from "urql";
-import styles from './people.module.css'
-import Loading from "./loading";
-import { SetStateAction, useEffect, useRef, useState } from "react";
 import { useIntersectionObserver, useMediaQuery } from "usehooks-ts";
-import { after } from "node:test";
+import Loading from "./loading";
+import styles from './people.module.css';
 
 const allPeopleQuery = graphql(`
   query allPeopleQuery($first: Int, $after: String){
@@ -61,13 +61,13 @@ const People = () => {
   useEffect(() => {
     if (!peoples.fetching && entry?.isIntersecting) {
       console.log('intersecting')
-      // reExecutePeopleQuery({
-      //   requestPolicy: 'network-only',
-      // })
-      setCount(count + 1)
+      reExecutePeopleQuery({
+        requestPolicy: 'network-only',
+      })
+      setCount(count => count + 1)
     }
     console.log(entry?.isIntersecting)
-  }, [count, entry?.isIntersecting, peoples.fetching])
+  }, [entry?.isIntersecting, peoples.fetching])
 
   return (
     <div className={styles.container}>
@@ -99,23 +99,10 @@ const People = () => {
       <div ref={LoadTriggerRef} className={'col-span-full justify-self-center' +
         (peoples.fetching || (peoples.data?.allPeople?.totalCount! > count * 4 * (lgMatches ? 4 : mdMatches ? 3 : smMatches ? 2 : 1)) ? '' : ' hidden')
       }>
-        <Loading />
+        <Loading /> Loading
       </div>
     </div>
   )
 }
 
 export default People;
-
-const PeopleData = (props: {
-  after?: string,
-  setAfter?: React.Dispatch<SetStateAction<string>>
-  setLoadCount?: React.Dispatch<SetStateAction<number>>
-}) => {
-
-  return (
-    <>
-
-    </>
-  )
-}

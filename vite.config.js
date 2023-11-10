@@ -10,8 +10,10 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    
   },
+  define: { 
+    'import.meta.vitest': process.env.NODE_ENV !== 'test' && 'undefined', 
+  }, 
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')

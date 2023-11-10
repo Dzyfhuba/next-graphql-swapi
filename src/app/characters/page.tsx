@@ -1,10 +1,11 @@
-'use client'
-import People from "@/components/people"
-import Urql from "@/providers/urql"
+import Urql from '@/providers/urql'
+import styles from './page.module.css'
+import People from '@/components/people'
 
-const Page = () => {
+const Characters = () => {
   return (
     <main>
+      <h1 className={styles.title}>Characters list</h1>
       <Urql>
         <People />
       </Urql>
@@ -12,4 +13,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default Characters

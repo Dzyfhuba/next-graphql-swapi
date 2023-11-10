@@ -1,8 +1,8 @@
 import Films from '@/components/films';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test, vi } from 'vitest';
-import Home from '../app/page';
 import allFilms from './allFilms.json';
+import Home from '@/app/page';
 
 vi.mock("next/navigation", () => {
   const actual = vi.importActual("next/navigation");
@@ -38,7 +38,6 @@ vi.mock('urql', () => {
     Provider: vi.fn(({ children }) => children)
   }
 })
-
 
 describe('Home Page', () => {
   test('renders home page', () => {
