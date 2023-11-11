@@ -3,6 +3,17 @@
 🌟 Welcome to our Next.js, GraphQL, and SWAPI-powered website! 🚀 Explore the Star Wars universe with lightning-fast page loads, thanks to Next.js. Experience efficient data queries and a seamless interface with GraphQL. Dive into the galaxy's details using SWAPI integration. Unleash the force of modern web technologies—secure, scalable, and ready for your intergalactic journey. May the code be with you! 🌌✨  
 > Live Demo: [https://next-graphql-swapi.hafidzubaidillah.com/](https://next-graphql-swapi.hafidzubaidillah.com/)
 
+## Screenshot  
+### Small Screen
+![small screen next-graphql-swapi hafidz ubaidillah](screenshots/small-screen.png)
+### Large Screen
+![large screen next-graphql-swapi hafidz ubaidillah](screenshots/large-screen.png)
+
+## PageSpeed Insight
+> Result: [LINK](https://pagespeed.web.dev/analysis/https-next-graphql-swapi-hafidzubaidillah-com/454a97t2id?form_factor=mobile) 
+
+![pagespeed insight](screenshots/pagespeed-insight.png)
+
 ## Technologies Used:
 1. **Next.js**: A React-based framework for server-rendered React applications, providing a smooth and instant browsing experience.
 
