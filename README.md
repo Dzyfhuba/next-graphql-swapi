@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next GraphQL SWAPI
 
-## Getting Started
+🌟 Welcome to our Next.js, GraphQL, and SWAPI-powered website! 🚀 Explore the Star Wars universe with lightning-fast page loads, thanks to Next.js. Experience efficient data queries and a seamless interface with GraphQL. Dive into the galaxy's details using SWAPI integration. Unleash the force of modern web technologies—secure, scalable, and ready for your intergalactic journey. May the code be with you! 🌌✨  
+> Live Demo: [https://next-graphql-swapi.hafidzubaidillah.com/](https://next-graphql-swapi.hafidzubaidillah.com/)
 
-First, run the development server:
+## Technologies Used:
+1. **Next.js**: A React-based framework for server-rendered React applications, providing a smooth and instant browsing experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **GraphQL**: A query language for APIs that enables efficient, flexible, and precise data fetching, enhancing the overall performance of the website.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **SWAPI Integration**: Seamless integration with the Star Wars API (SWAPI) to dynamically retrieve and display information about Star Wars characters, planets, and starships.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Try in Your Local
+Certainly! Here's a basic installation procedure for running your Next.js, GraphQL, and SWAPI-powered website locally along with a simple test:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Prerequisites:
 
-## Learn More
+- Node.js installed on your machine (version 14 or above)
+- npm (Node Package Manager) installed
 
-To learn more about Next.js, take a look at the following resources:
+### Installation:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Dzyfhuba/next-graphql-swapi.git
+   cd next-graphql-swapi
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Start the Development Server:**
+   ```bash
+   npm run dev
+   ```
+   This command will start the Next.js development server. Open your browser and go to `http://localhost:3000` to view your website.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Explore the Website:**
+   Explore different pages and features of your website locally. Ensure that the SWAPI integration is working as expected, and data is being fetched correctly.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Running Tests:
+
+1. **Run Test Suites:**
+   ```bash
+   npm test
+   ```
+   This command will run any test suites you have set up for your project.
+
+2. **Review Test Results:**
+   After the tests have completed, review the results in the console. Ensure that all tests pass successfully.
+
+## Conclusion:
+Thank you for visiting our repository or website. If there are any shortcomings in the repository or the live demo I've created, I would greatly appreciate your constructive feedback. Your insights are invaluable to us, and I welcome any criticism to help improve our project. Happy coding! 🚀✨
