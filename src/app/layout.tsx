@@ -11,8 +11,8 @@ import Footer from '@/components/footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Anekapay Test',
-  description: 'This is a test for Anekapay',
+  title: 'Next GraphQL SWAPI from Hafidz Ubaidillah',
+  description: 'Next GraphQL SWAPI from Hafidz Ubaidillah',
 }
 
 export default function RootLayout({
