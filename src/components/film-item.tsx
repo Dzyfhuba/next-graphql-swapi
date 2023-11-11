@@ -6,6 +6,7 @@ import styles from './film-item.module.css'
 import moment from "moment";
 import Link from "next/link";
 import Swal from "sweetalert2";
+import { inDevelopment } from "@/function/alert";
 
 type Props = {
   filmId: string
@@ -77,14 +78,7 @@ const FilmItem = (props: Props) => {
     }
   })
 
-  const inDevelopment = () => {
-    Swal.fire({
-      title: 'In Development',
-      text: 'This feature is in development',
-      icon: 'info',
-      confirmButtonText: 'Ok'
-    })
-  }
+  
 
   return (
     <div>
@@ -134,7 +128,7 @@ const FilmItem = (props: Props) => {
                     <button
                       type='button'
                       key={i}
-                      className={styles.actionLink}
+                      className={styles.actionLink + ' opacity-70'}
                       onClick={inDevelopment}
                     >{e?.node?.name}
                     </button>
@@ -149,7 +143,7 @@ const FilmItem = (props: Props) => {
                     <button
                       type='button'
                       key={i}
-                      className={styles.actionLink}
+                      className={styles.actionLink + ' opacity-70'}
                       onClick={inDevelopment}
                     >{e?.node?.name}
                     </button>
@@ -164,7 +158,7 @@ const FilmItem = (props: Props) => {
                     <button
                       type='button'
                       key={i}
-                      className={styles.actionLink}
+                      className={styles.actionLink + ' opacity-70'}
                       onClick={inDevelopment}
                     >{e?.node?.name}
                     </button>
@@ -179,7 +173,7 @@ const FilmItem = (props: Props) => {
                     <button
                       type='button'
                       key={i}
-                      className={styles.actionLink}
+                      className={styles.actionLink + ' opacity-70'}
                       onClick={inDevelopment}
                     >{e?.node?.name}
                     </button>

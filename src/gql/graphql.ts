@@ -1304,6 +1304,13 @@ export type VehiclesEdge = {
   node?: Maybe<Vehicle>;
 };
 
+export type CharacterByIdQueryQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type CharacterByIdQueryQuery = { __typename?: 'Root', person?: { __typename?: 'Person', name?: string | null, gender?: string | null, birthYear?: string | null, height?: number | null, mass?: number | null, skinColor?: string | null, eyeColor?: string | null, hairColor?: string | null, filmConnection?: { __typename?: 'PersonFilmsConnection', totalCount?: number | null, edges?: Array<{ __typename?: 'PersonFilmsEdge', node?: { __typename?: 'Film', id: string, title?: string | null } | null } | null> | null } | null, homeworld?: { __typename?: 'Planet', id: string, name?: string | null } | null, species?: { __typename?: 'Species', id: string, name?: string | null } | null, starshipConnection?: { __typename?: 'PersonStarshipsConnection', edges?: Array<{ __typename?: 'PersonStarshipsEdge', node?: { __typename?: 'Starship', id: string, name?: string | null } | null } | null> | null } | null, vehicleConnection?: { __typename?: 'PersonVehiclesConnection', edges?: Array<{ __typename?: 'PersonVehiclesEdge', node?: { __typename?: 'Vehicle', id: string, name?: string | null } | null } | null> | null } | null } | null };
+
 export type FilmByIdQueryQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
@@ -1341,6 +1348,53 @@ export class TypedDocumentString<TResult, TVariables>
   }
 }
 
+export const CharacterByIdQueryDocument = new TypedDocumentString(`
+    query characterByIdQuery($id: ID!) {
+  person(id: $id) {
+    name
+    gender
+    birthYear
+    height
+    mass
+    skinColor
+    eyeColor
+    hairColor
+    filmConnection {
+      totalCount
+      edges {
+        node {
+          id
+          title
+        }
+      }
+    }
+    homeworld {
+      id
+      name
+    }
+    species {
+      id
+      name
+    }
+    starshipConnection {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+    vehicleConnection {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+    `) as unknown as TypedDocumentString<CharacterByIdQueryQuery, CharacterByIdQueryQueryVariables>;
 export const FilmByIdQueryDocument = new TypedDocumentString(`
     query filmByIdQuery($id: ID!) {
   film(id: $id) {
