@@ -13,3 +13,19 @@
 .box > .title {
   @apply font-bold text-lg
 }
+
+.search {
+  @apply ml-auto flex col-span-full
+}
+
+.search > input {
+  @apply input input-bordered w-full max-w-xs rounded-r-none
+}
+
+.search > button {
+  @apply btn btn-primary rounded-l-none
+}
+
+.more {
+  @apply btn btn-outline btn-sm rounded-full w-max m-[auto_0_0_auto]
+}

@@ -27,5 +27,5 @@
 }
 
 .more {
-  @apply btn btn-outline btn-sm rounded-full w-max ml-auto
+  @apply btn btn-outline btn-sm rounded-full w-max m-[auto_0_0_auto]
 }

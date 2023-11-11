@@ -5,6 +5,8 @@ import { useQuery } from "urql";
 import { useIntersectionObserver, useMediaQuery } from "usehooks-ts";
 import Loading from "./loading";
 import styles from './people.module.css';
+import { MdSearch } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 const allPeopleQuery = graphql(`
   query allPeopleQuery($first: Int, $after: String){
@@ -50,30 +52,54 @@ const People = () => {
       after: null
     }
   })
-  console.log(count * 4 * (lgMatches ? 4 : mdMatches ? 3 : smMatches ? 2 : 1))
 
   const LoadTriggerRef = useRef<HTMLDivElement>(null)
   const entry = useIntersectionObserver(LoadTriggerRef, {
     threshold: 1
   })
 
+  const router = useRouter()
+
+  const [search, setSearch] = useState<string>()
+  const [filter, setFilter] = useState<string>()
 
   useEffect(() => {
     if (!peoples.fetching && entry?.isIntersecting) {
-      console.log('intersecting')
       reExecutePeopleQuery({
         requestPolicy: 'network-only',
       })
       setCount(count => count + 1)
     }
-    console.log(entry?.isIntersecting)
-  }, [entry?.isIntersecting, peoples.fetching])
+
+    const query = new URLSearchParams(window.location.search)
+    const search = query.get('search')
+    if (search) {
+      setSearch(search)
+    }
+  }, [entry?.isIntersecting, peoples.fetching, reExecutePeopleQuery])
 
   return (
     <div className={styles.container}>
+      <form className={styles.search} onSubmit={(e) => {
+        e.preventDefault()
+        const inputVal = e.currentTarget.querySelector('input')?.value
+        reExecutePeopleQuery()
+        setCount(1)
+        setFilter(inputVal)
+        router.replace(inputVal ? `?search=${inputVal}` : '/characters')
+      }}>
+        <input type="text" placeholder="Search" name="search" onChange={(e) => setSearch(e.target.value)} defaultValue={search} />
+        <button><MdSearch size={24} /></button>
+      </form>
       {
         peoples.data
-          ? peoples.data?.allPeople?.edges?.map((item) => {
+          ? peoples.data?.allPeople?.edges?.filter(a => {
+            const query = new URLSearchParams(window.location.search)
+            const filterin = (query.get('search') || filter)?.toLocaleLowerCase().replaceAll(' ', '') || ''
+            if (!filterin) return true
+            return a?.node?.name?.replaceAll(' ', '')?.toLocaleLowerCase().includes(filterin)
+          })
+          .map((item) => {
             return (
               <div key={item?.node?.id} className={styles.box}>
                 <h2 className={styles.title}>{item?.node?.name}</h2>
@@ -98,8 +124,9 @@ const People = () => {
 
       <div ref={LoadTriggerRef} className={'col-span-full justify-self-center' +
         (peoples.fetching || (peoples.data?.allPeople?.totalCount! > count * 4 * (lgMatches ? 4 : mdMatches ? 3 : smMatches ? 2 : 1)) ? '' : ' hidden')
+        + (filter ? ' hidden' : '')
       }>
-        <Loading /> Loading
+        <Loading />
       </div>
     </div>
   )

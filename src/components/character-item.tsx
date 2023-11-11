@@ -120,31 +120,41 @@ const CharacterItem = (props: Props) => {
         </button>
       </div>
 
-      <h3 className={styles.subTitle}>Starships</h3>
-      <div className={styles.boxFlex}>
-        {character.starshipConnection?.edges?.map((e, i) => (
-          <button
-            key={i}
-            className={styles.actionLink + ' opacity-70'}
-            onClick={inDevelopment}
-          >
-            {e?.node?.name}
-          </button>
-        ))}
-      </div>
+      {
+        (character.starshipConnection?.edges?.length || 0) > 0 &&
+        <>
+          <h3 className={styles.subTitle}>Starships</h3>
+          <div className={styles.boxFlex}>
+            {character.starshipConnection?.edges?.map((e, i) => (
+              <button
+                key={i}
+                className={styles.actionLink + ' opacity-70'}
+                onClick={inDevelopment}
+              >
+                {e?.node?.name}
+              </button>
+            ))}
+          </div>
+        </>
+      }
 
-      <h3 className={styles.subTitle}>Vehicles</h3>
-      <div className={styles.boxFlex}>
-        {character.vehicleConnection?.edges?.map((e, i) => (
-          <button
-            key={i}
-            className={styles.actionLink + ' opacity-70'}
-            onClick={inDevelopment}
-          >
-            {e?.node?.name}
-          </button>
-        ))}
-      </div>
+      {
+        (character.vehicleConnection?.edges?.length || 0) > 0 &&
+        <>
+          <h3 className={styles.subTitle}>Vehicles</h3>
+          <div className={styles.boxFlex}>
+            {character.vehicleConnection?.edges?.map((e, i) => (
+              <button
+                key={i}
+                className={styles.actionLink + ' opacity-70'}
+                onClick={inDevelopment}
+              >
+                {e?.node?.name}
+              </button>
+            ))}
+          </div>
+        </>
+      }
     </div>
   )
 }
