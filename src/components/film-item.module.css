@@ -1,0 +1,23 @@
+.title {
+  @apply text-xl font-extrabold
+}
+
+.subTitle {
+  @apply text-lg font-bold
+}
+
+.releaseDate {
+  @apply text-sm opacity-50
+}
+
+.gridBox {
+  @apply grid grid-cols-[max-content_auto] gap-1
+}
+
+.boxFlex {
+  @apply flex flex-wrap gap-1
+}
+
+.actionLink {
+  @apply btn btn-outline btn-xs
+}

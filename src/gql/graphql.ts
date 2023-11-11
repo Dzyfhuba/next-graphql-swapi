@@ -1304,6 +1304,13 @@ export type VehiclesEdge = {
   node?: Maybe<Vehicle>;
 };
 
+export type FilmByIdQueryQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type FilmByIdQueryQuery = { __typename?: 'Root', film?: { __typename?: 'Film', id: string, title?: string | null, director?: string | null, producers?: Array<string | null> | null, releaseDate?: string | null, created?: string | null, characterConnection?: { __typename?: 'FilmCharactersConnection', totalCount?: number | null, edges?: Array<{ __typename?: 'FilmCharactersEdge', node?: { __typename?: 'Person', id: string, name?: string | null } | null } | null> | null } | null, speciesConnection?: { __typename?: 'FilmSpeciesConnection', totalCount?: number | null, edges?: Array<{ __typename?: 'FilmSpeciesEdge', node?: { __typename?: 'Species', id: string, name?: string | null } | null } | null> | null } | null, planetConnection?: { __typename?: 'FilmPlanetsConnection', totalCount?: number | null, edges?: Array<{ __typename?: 'FilmPlanetsEdge', node?: { __typename?: 'Planet', id: string, name?: string | null } | null } | null> | null } | null, starshipConnection?: { __typename?: 'FilmStarshipsConnection', totalCount?: number | null, edges?: Array<{ __typename?: 'FilmStarshipsEdge', node?: { __typename?: 'Starship', id: string, name?: string | null } | null } | null> | null } | null, vehicleConnection?: { __typename?: 'FilmVehiclesConnection', totalCount?: number | null, edges?: Array<{ __typename?: 'FilmVehiclesEdge', node?: { __typename?: 'Vehicle', id: string, name?: string | null } | null } | null> | null } | null } | null };
+
 export type AllFilmsWithVariablesQuery199QueryVariables = Exact<{
   first: Scalars['Int']['input'];
 }>;
@@ -1334,6 +1341,63 @@ export class TypedDocumentString<TResult, TVariables>
   }
 }
 
+export const FilmByIdQueryDocument = new TypedDocumentString(`
+    query filmByIdQuery($id: ID!) {
+  film(id: $id) {
+    id
+    title
+    director
+    producers
+    releaseDate
+    created
+    characterConnection {
+      totalCount
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+    speciesConnection {
+      totalCount
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+    planetConnection {
+      totalCount
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+    starshipConnection {
+      totalCount
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+    vehicleConnection {
+      totalCount
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+    `) as unknown as TypedDocumentString<FilmByIdQueryQuery, FilmByIdQueryQueryVariables>;
 export const AllFilmsWithVariablesQuery199Document = new TypedDocumentString(`
     query allFilmsWithVariablesQuery199($first: Int!) {
   allFilms(first: $first) {

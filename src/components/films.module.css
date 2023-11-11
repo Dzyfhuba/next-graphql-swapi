@@ -25,3 +25,7 @@
 .search > button {
   @apply btn btn-primary rounded-l-none
 }
+
+.more {
+  @apply btn btn-outline btn-sm rounded-full w-max ml-auto
+}

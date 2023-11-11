@@ -6,6 +6,7 @@ import Loading from "./loading";
 import { MdSearch } from 'react-icons/md'
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const filmsQuery = graphql(`
   query allFilmsWithVariablesQuery199($first: Int!) {
@@ -87,6 +88,10 @@ const Films = () => {
                     <span>Release Date</span>
                     <time>{film.node.releaseDate}</time>
                   </div>
+
+                  <Link href={`/films/${film.node.id}`} className={styles.more}>
+                    See more
+                  </Link>
                 </div>
               )
             : <>No Data</>

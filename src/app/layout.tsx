@@ -37,13 +37,8 @@ export default function RootLayout({
             <Link href={'/about'} className='h-full flex items-center link link-hover'>
               About
             </Link>
-            <a href="https://github.com/Dzyfhuba/next-graphql-swapi" target='_blank' rel='noreferrer' className='h-full flex items-center link link-hover swap swap-flip'>
-              
-              
-              <input type="checkbox" />
-
-              <div className="swap-on"><FaGithub size={24} /></div>
-              <div className="swap-off"><FaGithub size={24} /></div>
+            <a href="https://github.com/Dzyfhuba/next-graphql-swapi" target='_blank' rel='noreferrer' className='h-full flex items-center hover:opacity-50'>
+            <FaGithub size={24} />
             </a>
           </div>
         </nav>
