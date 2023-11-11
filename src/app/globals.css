@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 main {
-  @apply p-3
+  @apply p-3 min-h-[110vh] max-w-3xl mx-auto
 }

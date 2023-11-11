@@ -1,7 +1,11 @@
 .nav {
-  @apply bg-base-100 shadow-md h-14 flex items-center px-3
+  @apply w-full bg-base-100 shadow-md
 }
 
-.nav > h1 {
+.nav > * {
+  @apply h-14 flex items-center px-3 w-full justify-between max-w-3xl mx-auto
+}
+
+.nav > * > h1 {
   @apply font-black uppercase text-2xl
 }

@@ -1,9 +1,9 @@
 .container {
-  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3
 }
 
 .film {
-  @apply card shadow-md p-3
+  @apply card shadow-md p-3 border
 }
 
 .film > .title {
